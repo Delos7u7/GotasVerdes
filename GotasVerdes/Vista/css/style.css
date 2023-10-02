@@ -1,0 +1,316 @@
+/* SIEMPRE PONER ESTO*/
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+/* AQUI ACABA LO QUE SIEMPRE VA*/
+
+/* AQUÍ EMPIEZA EL HEADER*/
+header {
+    width: 100%;
+    height: auto;
+    /*background-color: #0D6630;*/
+    border-radius: 0 0 550px 0;
+}
+nav{
+    background:#0D6630 ;
+    height: 100px;
+    width: 100%;
+    border-radius: 0 0 50px 50px;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: #fff;
+    font-size: 20px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    /*text-transform: uppercase;*/
+}
+.enlace{
+    line-height: 100px;
+    margin: 0 30px;
+    font-size: 40px;
+    color: #30B36E;  
+}
+.enlace span{
+    color: #fff;
+}
+.checkbtn{
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 100px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+/* AquÍ TERMINA EL HEADER*/
+
+main{
+    flex: 1;
+}
+
+/* PRIMER SECCIÓN MAIN*/
+
+.section-phrase-container{
+    padding-top: 30px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 250px;
+    background-color: #0D6630;
+    border-radius: 0 0 250px 0;
+
+}
+
+.phrases{
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+
+.phrase{
+    font-size: 30px;
+}
+.phraseMini{
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.gotas-pet{
+    width: 100%;
+    height: 120px;
+    background-image: url('../img/indexImg/MascotaGotasVerdesjpg-removebg-preview.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* TERMINA PRIMERA SECCIÓN MAIN*/
+
+
+/* SEGUNDA SECCIÓN MAIN*/
+
+.section-points--container{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    color: #007B3C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.points{
+    width: 90%;
+    height: auto;
+    display: flex;  
+    justify-content: space-around;
+}
+
+.points p{
+    align-self: center;
+    white-space: nowrap;
+    font-size: 15px;
+} 
+
+.points span{
+    align-self: center;
+    width: 100%;
+    height: 100px;
+    background-image: url('../img/indexImg/MonedaGotasVerdesjpg-removebg-preview.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* TERMINA SEGUNDA SECCIÓN MAIN*/
+
+/* EMPIEZA TERCERA SECCIÓN MAIN*/
+
+.section-products--container{
+    width: 100%;
+    height: 500px;
+    background-color: #27894F;
+    display: grid;
+    grid-template-rows: 50px 450px;
+    justify-content: center;
+}
+
+.products-container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .product {
+  
+  }
+
+  .product.no1{
+    width: auto;
+    height: auto;
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .product.no2{
+    width: auto;
+    height: auto;
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .product.no3{
+    width: auto;
+    height: auto;
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .product.no4{
+    width: auto;
+    height: auto;
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .product.no5{
+    width: auto;
+    height: auto;   
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .product.no5 {
+    grid-column: span 2;
+  }
+
+/* TERMINA TERCERA SECCIÓN MAIN*/
+
+/* AQUÍ EMPIEZA EL FOOTER*/
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: #0D6630;
+}
+
+.footer-section{
+    width: 100%;
+    height: 100%;
+}
+
+.up-footer--container{
+    height: 50%;
+    display: flex;
+}
+
+.up-footer--container ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.down-footer--container ul li{
+    display: inline;
+}
+
+
+
+.down-footer--container{
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.down-footer--logo{
+    width: 95px;
+    height: 35px;
+    background-image: url('../Index/logo_gv\ sin\ fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.down-footer--container p{
+    font-size: 10px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+/* AQUÍ TERMINA EL FOOTER*/
+
+
+ @media(max-width: 858px){
+  .checkbtn{
+   display: block;  
+  }
+  nav{
+     border-radius: 0 0 0 0;
+  }
+  .enlace{
+    font-size: 40px;
+  }
+  .XD{
+     position: fixed;
+     width: 100%;
+     height: 100vh;
+     background: #0D6630 ;
+     top: 100px;
+     left: -100%;
+     text-align: center;
+     transition: all .7s;
+  }
+  nav ul li{
+     display: block;
+     margin: 50px 0;
+     line-height: 30px;
+  }
+  nav ul li a{
+     font-size: 20px;
+  }
+  li a:hover, a.active{
+    background: none;
+  }
+   #check:checked ~ ul{
+     left: 0;
+   }
+ }
+ 
