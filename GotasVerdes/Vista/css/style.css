@@ -541,3 +541,17 @@ footer {
         left: 0;
     }
 }
+
+@media (min-width: 320px) and (max-width: 367px) {
+    .enlace{
+        font-size: 30px;
+    }
+
+    .gotas-pet {
+        height: 103px;
+    }
+
+    .canjea{
+        font-size: 12px;
+    }
+}
