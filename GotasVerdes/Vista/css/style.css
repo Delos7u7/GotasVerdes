@@ -126,7 +126,7 @@ main {
 }
 
 
-@media(min-width: 858px) {
+@media(min-width: 1150px) {
     .section-phrase-container {
         flex-direction: row;
         height: 500px;
@@ -534,7 +534,7 @@ footer {
 
     li a:hover,
     a.active {
-        background: none;
+        background: none; 
     }
 
     #check:checked~ul {
