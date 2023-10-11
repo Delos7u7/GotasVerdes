@@ -204,6 +204,23 @@ main {
     background-size: contain;
 }
 
+.points-table{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.points-table .table{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(6, 1fr);   
+    justify-content: center;
+}
+
+.points-table .table .espacios {
+    border: 1px solid black;
+}
+
 @media(min-width: 858px) {
     .points .canjea {
         font-size: 50px;
