@@ -217,9 +217,9 @@ main {
 }
 
 .points-table .table{
-    width: 100%;
+    width: 80%;
     height: 300px;
-    margin-top: 20px;
+    margin: 40px auto;
     display: grid;
     gap: 3px;
     grid-template-columns: 50% 50%;
@@ -292,9 +292,9 @@ main {
     }
 
     .points-table .table{
-        width: 80%;
+        width: 40%;
         height: 500px;
-        margin: 0 auto;
+        margin: 40px auto;
     }
         
 }
@@ -352,7 +352,7 @@ main {
 
 
 .product.no2 span {
-    background-image: url('../img/indexImg/Playera.png');
+    background-image: url('../img/indexImg/Taza.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -373,7 +373,7 @@ main {
 
 
 .product.no3 span {
-    background-image: url('../img/indexImg/Playera.png');
+    background-image: url('../img/indexImg/Termos\ \ GV.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -398,6 +398,7 @@ main {
         justify-content: center;
         align-content: center;
         grid-template-columns: 100%;
+        padding: 0 20px;
     }
 
     .section-products--container h2 {
