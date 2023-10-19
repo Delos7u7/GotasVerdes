@@ -22,7 +22,6 @@ function iniciarMap() {
     scaledSize: new google.maps.Size(40, 40)
   };
 
-  // Crea marcadores para cada ubicación y agrégalos al mapa
   for (var i = 0; i < locations.length; i++) {
     var marker = new google.maps.Marker({
       position: locations[i],
@@ -30,13 +29,9 @@ function iniciarMap() {
       icon: customIcon
     });
 
-    // Agrega un manejador de eventos clic para mostrar una alerta al hacer clic en un marcador
     marker.addListener('click', function () {
-      // Obtén información del marcador si es necesario
-      var markerPosition = this.getPosition().toString();
-      
-      // Muestra una alerta con información del marcador
-      alert('Marcador clicado en posición: ' + markerPosition + ' \n Nombre del negocio: \n Télefono: ');
+      // Abre el modal correspondiente al hacer clic en el marcador
+      $('#exampleModal').modal('show');
     });
   }
 }
