@@ -3,22 +3,23 @@ var map;
 // Define un conjunto de ubicaciones
 var locations = [
   { lat: 20.235641535251226, lng: -99.21338851191847},
-  { lat: 20.23, lng: -99.22 }, // Agrega más ubicaciones según tus necesidades
+  { lat: 20.23, lng: -99.22 },
   { lat: 20.24, lng: -99.21 },
+  { lat: 20.330471066627837, lng: -99.23171405030418}
   // Agrega más ubicaciones aquí
 ];
 
 function iniciarMap() {
   var coord = { lat: 20.229817, lng: -99.214222 };
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16, // Ajusta el nivel de zoom según tus necesidades
+    zoom: 16,
     center: coord
   });
 
   // Configura el icono personalizado
   var customIcon = {
     url: document.getElementById('customIcon').src,
-    scaledSize: new google.maps.Size(40, 40) // Ajusta el tamaño según tus necesidades
+    scaledSize: new google.maps.Size(40, 40)
   };
 
   // Crea marcadores para cada ubicación y agrégalos al mapa
@@ -27,6 +28,15 @@ function iniciarMap() {
       position: locations[i],
       map: map,
       icon: customIcon
+    });
+
+    // Agrega un manejador de eventos clic para mostrar una alerta al hacer clic en un marcador
+    marker.addListener('click', function () {
+      // Obtén información del marcador si es necesario
+      var markerPosition = this.getPosition().toString();
+      
+      // Muestra una alerta con información del marcador
+      alert('Marcador clicado en posición: ' + markerPosition + ' \n Nombre del negocio: \n Télefono: ');
     });
   }
 }

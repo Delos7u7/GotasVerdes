@@ -7,3 +7,35 @@
     width: 100%;
     height: 100%;
 }
+
+.team-section--container{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.team-info{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    color: #0D6630;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+.team-info button{
+    
+    border: none;
+    background-color: #0D6630;
+    color: white;
+    width: 150px;
+    height: 30px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+}
+
+.modal {
+    z-index: 9999; /* Puedes ajustar este valor según tus necesidades */
+}
