@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/estiloMapaInvitado.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/tiendaUsuario.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
@@ -29,20 +29,38 @@
                 <li><a href="#">Mapa</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="#">Saber más</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Perfil
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Link 1</a></li>
+                            <li><a class="dropdown-item" href="#">Link 2</a></li>
+                            <li><a class="dropdown-item" href="#">Link 3</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="conoce-section--container">
-            <span class="conoce-backgroundimage"></span>
-            <h2>Conoce nuestros productos.</h2>
+        <!-- Vertically centered scrollable modal -->
+        <section class="map-section--container">
+            <img id="customIcon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='lime' class='bi bi-droplet-fill' viewBox='0 0 16 16'%3E%3Cpath d='M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z' /%3E%3C/svg%3E" style="display: none;">
+            <div id="map"></div>
+            <script src="../mapaInvitado.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
         </section>
 
-        <section class="shop-section--container">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <p>Contenido del modal aquí.</p>
+            </div>
+        </div>
 
-        </section>
     </main>
 
     <footer>
