@@ -261,6 +261,10 @@ body {
     grid-template-rows: 80% 20%;
 }
 
+.our-products-title{
+    color: white;
+}
+
 .product.no1 span {
     background-image: url('../img/indexImg/Playera.png');
     background-position: center;
@@ -281,9 +285,6 @@ body {
     margin-top: 5px;
 }
 
-.our-products-title{
-    color: white;
-}
 
 .product.no2 span {
     background-image: url('../img/indexImg/Taza.png');

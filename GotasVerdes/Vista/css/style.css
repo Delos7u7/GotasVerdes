@@ -60,11 +60,18 @@ nav ul li a {
 }
 
 /* Estilos para el menú desplegable (dropdown) en pantallas pequeñas */
+.dropdown{
+    
+    height: 101px;
+
+}
+
 .dropdown button {
     background-color: #0D6630 !important;
     border: none;
     font-size: 20px;
     color: white;
+    padding-bottom: 12px;
 }
 
 .btn-primary{
@@ -220,7 +227,7 @@ footer {
     }
 
     .enlace {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     .XD {
