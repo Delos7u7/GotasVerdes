@@ -56,7 +56,50 @@ nav ul li a {
     text-decoration: none;
     z-index: 1000; /* Aumenta el valor de z-index */
     /*text-transform: uppercase;*/
+    font-family: 'Inter', sans-serif;
 }
+
+/* Estilos para el menú desplegable (dropdown) en pantallas pequeñas */
+.dropdown button {
+    background-color: #0D6630 !important;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+
+.btn-primary{
+    padding: 0;
+    margin: 0;
+}
+
+/* Cambiar el color de fondo del menú desplegable */
+.dropdown-menu {
+    background-color: #0D6630 !important;
+    position: absolute; /* Asegura que el menú esté en posición absoluta */
+    right: 0; /* Alinea el menú a la derecha */
+    z-index: 1000; /* Aumenta el valor de z-index para asegurarse de que aparezca encima del contenido */
+}
+
+/* Cambiar el color del texto del menú desplegable */
+.dropdown-menu a {
+    color: white;
+}
+
+/* Estilos para el enlace del menú desplegable */
+.dropdown-menu a:hover {
+    background-color: #30B36E; /* Cambia el color de fondo al pasar el mouse por encima del enlace */
+    color: white; /* Cambia el color del texto al pasar el mouse por encima del enlace */
+}
+
+@media (max-width: 950px) {
+    /* Estilos para el rango de 951-858 px */
+    .dropdown button {
+      width: 90px;
+    }
+    .XD{
+        font-size: 10px;
+    }
+  }
 
 .enlace {
     line-height: 100px;
@@ -167,7 +210,7 @@ footer {
 /* AQUÍ TERMINA EL FOOTER*/
 
 
-@media(max-width: 858px) {
+@media(max-width: 958px) {
     .checkbtn {
         display: block;
     }

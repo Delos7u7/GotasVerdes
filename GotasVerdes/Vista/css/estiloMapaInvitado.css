@@ -42,3 +42,41 @@
     z-index: 9999; /* Puedes ajustar este valor según tus necesidades */
     position: fixed; /* Agrega esta línea para definir la posición */
 }
+
+.modal-content {
+    background-color: #0D6630;
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+}
+#exampleModal .btn-close {
+    color: white !important;
+}
+
+.modal-body{
+    background-color: #0D6630;
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+}
+
+/* Cambia el color de fondo del encabezado y del pie del modal si es necesario */
+.modal-header, .modal-footer {
+    background-color: #0D6630;
+    color: white; /* Cambia el color del texto en el encabezado y pie */
+}
+
+.negocio-info--container{
+    font-family: 'Inter', sans-serif;
+}
+
+.negocio-info--container .negocio-title{
+    font-weight: bold;
+}
+
+.negocio-info--container .negocio-subtitle{
+    padding-top: 50px;
+    font-weight: 600;
+}
+
+.negocio-info--container .negocio-text{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-weight: 400;
+}
