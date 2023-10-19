@@ -2,7 +2,7 @@ var map;
 
 // Define un conjunto de ubicaciones
 var locations = [
-  { lat: 20.229817, lng: -99.214222 },
+  { lat: 20.235641535251226, lng: -99.21338851191847},
   { lat: 20.23, lng: -99.22 }, // Agrega más ubicaciones según tus necesidades
   { lat: 20.24, lng: -99.21 },
   // Agrega más ubicaciones aquí
