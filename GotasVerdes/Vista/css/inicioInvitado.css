@@ -454,6 +454,13 @@ body {
     color: #FFFFFF;
 }
 
+@media screen and (max-width: 857px) {
+    
+    .commentsGrid {
+        grid-template-rows: 1fr 1fr;
+    }
+  }
+
 
 /* TERMINA CUARTA SECCIÓN MAIN*/
 

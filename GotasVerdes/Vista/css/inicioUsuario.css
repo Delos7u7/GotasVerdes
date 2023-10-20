@@ -380,6 +380,17 @@ body {
     height: 70%;
     justify-self: end;
     align-self: center;
+    vertical-align: top; /* Alinea el texto en la parte superior del input */
+}
+
+.comments.left input {
+    width: 100%; /* Ajusta el ancho si es necesario */
+    height: 70%;
+    padding-top: 10px; /* Agrega relleno en la parte superior */
+    border: none; /* Puedes quitar el borde si lo deseas */
+    border-radius: 10px;
+    background-color: #D0D0D0;
+    opacity: 0.37;
 }
 
 .comments.right {
@@ -401,6 +412,13 @@ body {
     background-color: #D0D0D0;
     opacity: 0.37;
 
+}
+
+@media screen and (max-width: 857px) {
+    .commentsGrid {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        grid-template-rows: 1fr 1fr; /* Divide en dos filas */
+    }
 }
 
 .comments-section--email {
@@ -452,6 +470,7 @@ body {
     text-align: center;
     color: #FFFFFF;
 }
+
 
 
 /* TERMINA CUARTA SECCIÓN MAIN*/
