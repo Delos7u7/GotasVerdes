@@ -1,0 +1,87 @@
+/* SIEMPRE PONER ESTO*/
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+/* AQUI ACABA LO QUE SIEMPRE VA*/
+
+
+main{
+flex: 1;
+   
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+th, td {
+    padding: 8px;
+  /*  text-align: left;*/
+}
+
+th {
+    font-size: 15px;
+    background-color: #27894F;
+    color:#ffffffd2;
+}
+
+tr {
+    font-size: 11px;
+    background-color: #D9D9D9;
+    color:#000000;
+}
+
+.table-title {
+    margin-bottom: 10px;
+    /* Estilos personalizados para el título de la tabla */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.boton-personalizado-1 {
+    background-color: #0D6630; /* Color de fondo del botón */
+    color: white; /* Color de texto del botón */
+    font-weight: bold;
+    font-size: 12px; /* Tamaño de fuente del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 8px 30px; /* Espaciado interno del botón (arriba y abajo, izquierda y derecha) */
+    border-radius: 10px; /* Borde redondeado del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.boton-personalizado-1:hover {
+    background-color: #159548; /* Color de fondo del botón al pasar el cursor sobre él */
+}
+
+.boton-personalizado-2 {
+    background-color: #0D6630; /* Color de fondo del botón */
+    color: white; /* Color de texto del botón */
+    font-weight: bold;
+    font-size: 12px; /* Tamaño de fuente del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 8px 30px; /* Espaciado interno del botón (arriba y abajo, izquierda y derecha) */
+    border-radius: 10px; /* Borde redondeado del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.boton-personalizado-2:hover {
+    background-color: #159548; /* Color de fondo del botón al pasar el cursor sobre él */
+}

@@ -1,0 +1,306 @@
+/* SIEMPRE PONER ESTO*/
+
+
+#texto-primero {
+    text-align: center;
+    font-weight: bold;
+    color: #007B3C;
+    font-size: 25px;
+    /* Puedes ajustar el tamaño de fuente según tus preferencias */
+    margin-bottom: -40px;
+}
+
+/* Estilos CSS para la imagen y el texto superpuesto */
+.image-container {
+    position: relative;
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+    margin-top: 5%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Elimina el espacio extra debajo de la imagen */
+    margin: 0 auto;
+    /* Centra la imagen horizontalmente */
+    width: 32%;
+    /* Ajusta el ancho de la imagen*/
+}
+
+.overlay-text {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    /* Fondo semitransparente para el texto */
+    color: #000000;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    top: 50%;
+    /* Centra verticalmente en relación con el contenedor principal */
+    left: 50%;
+    /* Centra horizontalmente en relación con el contenedor principal */
+    transform: translate(-50%, -50%);
+    /* Centra el texto en el centro de la imagen */
+}
+
+.image-container-2 {
+    margin-top: -3%;
+}
+
+/* Estilos CSS para la segunda imagen */
+.image-container-2 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    margin-left: 31%;
+    width: 15%;
+    /* Ajusta el ancho de la imagen*/
+}
+
+#texto-segundo {
+    text-align: center;
+    font-weight: bold;
+    color: #007B3C;
+    font-size: 25px;
+    /* Puedes ajustar el tamaño de fuente según tus preferencias */
+    margin-top: 80px
+}
+
+
+/* Estilos CSS para el contenedor de imágenes y textos */
+.image-text-container {
+    display: flex;
+    /* Establece un contenedor flexible para colocar los elementos en fila */
+    justify-content: space-around;
+    /* Distribuye los elementos de manera uniforme en el espacio disponible */
+    margin-top: 40px;
+    /* Añade espacio entre el segundo texto y el conjunto de imágenes y textos */
+}
+
+/* Estilos CSS para cada conjunto de imagen y texto */
+.image-text {
+    text-align: center;
+    /* Centra el texto horizontalmente */
+}
+
+.image-text img {
+    max-width: 90%;
+    /* Ajusta el ancho de las imágenes según tus preferencias */
+    height: auto;
+}
+
+.image-text p {
+    font-weight: bold;
+    color: #000000;
+    font-size: 16px;
+    margin-top: 10px;
+    /* Añade espacio entre la imagen y el texto */
+}
+
+/* Estilos CSS para el contenedor de lista */
+.list {
+    background-color: #dcdcdc;
+    padding: 30px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+    /* Agrega posicionamiento relativo al contenedor de la lista */
+}
+
+/* Estilos CSS para el título del listado */
+.list h3 {
+    font-weight: bold;
+    color: #007B3C;
+    font-size: 25px;
+    /* Tamaño de fuente del título */
+    margin-top: auto;
+}
+
+/* Estilos CSS para la lista de elementos */
+.list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list li {
+    color: #537563;
+    font-size: 16px;
+    /* Tamaño de fuente de los elementos de la lista */
+    margin: 25px 0;
+    /* Espaciado entre elementos */
+}
+
+/* Estilos CSS para la imagen 6-1 */
+.image6-1 {
+    position: absolute;
+    /* Agrega posicionamiento absoluto para la primera imagen */
+    left: 0;
+    /* Coloca la primera imagen a la izquierda */
+    top: 0;
+    /* Alinea la primera imagen en la parte superior */
+}
+
+/* Estilos CSS para la imagen 6-2 */
+.image6-2 {
+    position: absolute;
+    /* Agrega posicionamiento absoluto para la segunda imagen */
+    right: 0;
+    /* Coloca la segunda imagen a la derecha */
+    top: 0;
+    /* Alinea la segunda imagen en la parte superior */
+}
+
+#texto-tercero {
+    text-align: center;
+    font-weight: bold;
+    color: #007B3C;
+    font-size: 25px;
+    margin-top: 0%;
+    text-shadow: 10px 10px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+#texto-carusel {
+    text-align: center;
+    font-weight: bold;
+    color: #2cad8f;
+    font-size: 25px;
+    margin-top: 10%
+}
+
+.carousel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Cambia el número para ajustar la cantidad de imágenes por fila */
+    gap: 10px;
+    /* Ajusta el espacio entre las imágenes */
+    margin-top: 2%
+}
+
+.carousel-grid img {
+    max-width: 50%;
+    height: auto;
+}
+
+.carousel-item-container {
+    background-color: #007b3b66;
+    /* Color de fondo deseado */
+    width: 200px;
+    /* Ancho deseado */
+    height: 200px;
+    /* Altura deseada */
+    margin: 0 auto;
+    /* Centrar el contenedor horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    /* Radio de las esquinas redondeadas */
+    cursor: pointer;
+}
+
+.carousel-item-container {
+    transition: background-color 0.3s;
+    /* Agrega una transición suave */
+}
+
+.carousel-item-container:hover {
+    background-color: #007b3b;
+    /* Cambia el color de fondo al pasar el cursor */
+}
+
+.carousel-item-container.active {
+    background-color: #007B3C;
+    /* Cambia el color de fondo al hacer clic (carrusel activo) */
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 858px) {
+    #texto-primero {
+        text-align: center;
+        font-weight: bold;
+        color: #007B3C;
+        font-size: 25px;
+        /* Puedes ajustar el tamaño de fuente según tus preferencias */
+        margin-bottom: -3%;
+    }
+
+    .image-container {
+        position: relative;
+        text-align: center;
+        /* Centra el contenido horizontalmente */
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        /* Elimina el espacio extra debajo de la imagen */
+        margin: 0 auto;
+        /* Centra la imagen horizontalmente */
+        width: 35%;
+        /* Ajusta el ancho de la imagen*/
+    }
+
+    .overlay-text {
+        font-size: 0.45em;
+        /* Cambia el tamaño de fuente del texto superpuesto para dispositivos móviles */
+        padding: 5px;
+        /* Ajusta el espaciado interno del texto */
+    }
+
+    #texto-segundo {
+        margin-top: 20px
+    }
+
+    .image6-2 img {
+        width: 35%;
+        height: 25%;
+    }
+
+    .image6-1 img {
+        width: 35%;
+        height: 25%;
+    }
+
+    .zz {
+        margin-right: 65%;
+        /* Ajusta el valor para mover menos hacia la izquierda en pantallas pequeñas */
+    }
+
+    .zzz {
+        margin-left: 65%;
+        /* Ajusta el valor para mover menos hacia la derecha en pantallas pequeñas */
+    }
+
+    .carousel-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Cambia el número para mostrar una imagen a la vez en pantallas pequeñas */
+    }
+
+    .carousel-grid img {
+        max-width: 90%;
+        /* Asegura que las imágenes se ajusten al ancho de la pantalla */
+        height: auto;
+        /* Mantiene la proporción de aspecto de las imágenes */
+    }
+
+    .carousel-item-container {
+        width: 85%;
+        /* Ocupa todo el ancho de la pantalla */
+        height: auto;
+        /* Altura deseada */
+
+    }
+}

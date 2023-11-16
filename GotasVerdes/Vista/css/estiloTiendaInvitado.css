@@ -1,0 +1,195 @@
+main {
+    background-color: rgba(175, 175, 175, 0.5);
+}  
+
+.points-group2{
+    margin-bottom: 0px;
+}
+
+.text-info--container{
+    margin-bottom: 0px;
+}
+
+.shop-points--container{
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shop-points--container .div-points--container{
+    display: flex;
+    border-style: none;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #0ca148;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-points--container .div-points--container p{
+    margin-bottom: 0px;
+    padding-left: 5px;
+}
+
+.dropCoin-icon{
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/indexImg/MonedaGotasVerdesjpg-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.all-items--container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.shop-items--container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.item{
+    width: 300px;
+    border: 1px solid rgba(4, 4, 4, 0.5);
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.individual-item{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.item.item1 .individual-item .product{
+    width: 90px;
+    height: 
+    90px;
+    background-image: url('../img/indexImg/Playera.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.item.item2 .individual-item .product{
+    width: 90px;
+    height: 
+    90px;
+    background-image: url('../img/indexImg/Taza.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.item.item3 .individual-item .product{
+    width: 90px;
+    height: 
+    90px;
+    background-image: url('../img/indexImg/Termos\ \ GV.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.item.item4 .individual-item .product{
+    width: 90px;
+    height: 
+    90px;
+    background-image: url('../img/indexImg/Productos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.price--container{
+    justify-self: center;
+    align-self: center;
+}
+
+.price--container p{
+    margin-bottom: 8px;
+}
+
+.left-price--container{
+    display: flex;
+    gap: 5px;
+}
+
+.left-price--prices{
+    display: flex;
+}
+
+.left-price--container:last-child{
+    flex-direction: column;
+}
+
+.minus-plus--container{
+    display: flex;
+}
+
+.minus{
+    width: 20px;
+    background-color: #0D6630;
+    color: white;
+    text-align: center;
+    border-radius: 15px 0 0 15px;
+}
+
+.plus{
+    width: 20px;
+    background-color: #0D6630;
+    color: white;
+    text-align: center;
+    border-radius: 0 15px 15px 0;
+}
+
+.input-minus-plus{
+    width: 30px;
+    text-align: center;
+    color: rgba(4, 4, 4, 0.7);
+}   
+
+.input-minus-plus:focus{
+    outline: none;
+}   
+
+.price--container p{
+    color: rgba(4, 4, 4, 0.7);
+    margin-bottom: 0;
+    padding-top: 5px;
+}
+.inici{
+    text-decoration: none; /* Quitar la subrayado del enlace */
+    color: red; /* Usar el color del texto padre (heredar) */
+}

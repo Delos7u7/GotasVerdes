@@ -1,0 +1,139 @@
+body {
+    background: #E7E1E1;
+    font-family: 'Inter', sans-serif; /* Cambiar el tipo de letra para todo el cuerpo del documento */
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    border-radius: 0 0 550px 0;
+}
+.wrapper {
+    font-family: 'Inter', sans-serif; 
+    position: static;
+    max-width: 100%;
+    width: 450px;
+    height: 550px;
+    background: #fff;
+    border-radius: 25px;
+    border: 2px solid #E7E1E1;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin: 100px auto;
+   
+    @media (max-width: 768px) {
+        margin: 150px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.wrapper h2 {
+    font-size: 2em;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.wrapper .input-box {
+    width: 100%;
+    margin-bottom: 60px;
+    height: 70px;
+    margin-bottom: 90px;
+    
+}
+.input-box.correo label::after {
+    content: "\f0e0"; /* Código Unicode del ícono (en este caso, un sobre) */
+    font-family: "Font Awesome 5 Free"; /* Fuente de íconos (ajusta según tu fuente) */
+    margin-left: 30px; /* Espacio entre el ícono y el texto */
+    font-weight: 900; /* Opcional: para asegurarse de que el ícono sea audaz */
+    display: inline-block; /* Muestra el ícono en línea */
+    color: #27894F; /* Cambia el color del ícono */
+}
+
+/* Estilo opcional para el texto de la etiqueta "Correo electrónico" */
+.input-box.correo label {
+    font-weight: normal; /* Opcional: para quitar la negrita del texto */
+}
+
+.input-box input {
+    width: 100%;
+    height: 60%;
+    border-radius: 6px;
+    border: 2px solid #0D6630;
+    outline: none;
+    font-size: 1em;   
+}
+
+
+.input-box label {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0 10px;
+      
+}
+.input-box p{
+    
+    color: #8f8d8d;
+    margin: 20px 10px;
+}
+
+
+
+.btn {
+    width: 40%;
+    height: 45px;
+    background: #27894F;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #E7E1E1;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 120px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        margin: 10px;
+        width: 60%;
+        margin-left: 45px; 
+        margin-right: auto;
+    }
+}
+.input-box::before {
+    content: "\f132"; /* Código del icono fa-light fa-shield */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 300; /* Peso ligero para el icono de luz */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta la posición del icono a tu preferencia */
+    transform: translateY(-50%);
+    font-size: 20px; /* Ajusta el tamaño del icono según tus necesidades */
+    color: #000; /* Cambia el color del icono si es necesario */
+}
+
+/* Añade estilos adicionales para el contenedor del input si es necesario */
+
+
+@media (max-width: 768px) {
+    .input-box input {
+        font-size: 0.8em;
+    }
+
+    .input-box label {
+        font-size: 0.9em;
+        margin: 0 10px;
+        
+    }
+    .input-box p{
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }  
+    .wrapper h2 {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+    }
+}

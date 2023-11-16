@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, .08);
+}
+
+.wrapper .left {
+  width: 25%;
+  background: linear-gradient(to right, #0D6630, #2fa35d);
+  padding: 30px 25px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.wrapper .left img {
+  margin-top: 50%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.wrapper .left h4 {
+  margin-bottom: 10px;
+}
+
+.wrapper .left p {
+  font-size: 12px;
+}
+
+.formm{
+  width: 100%;
+  padding: 20px;
+}
+
+.wrapper .right {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background: #fff;
+  /* padding: 30px 50px; */
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin: 125px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.right h2 {
+  font-size: 2em;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.right .input-box {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 65px;
+
+}
+
+#logo {
+  font-family: "Font Awesome 5 Free";
+  /* Fuente de íconos (ajusta según tu fuente) */
+  margin-left: auto;
+  /* Espacio entre el ícono y el texto */
+  font-weight: 900;
+  /* Opcional: para asegurarse de que el ícono sea audaz */
+  color: #27894F;
+  /* Cambia el color del ícono */
+}
+
+/* Estilo opcional para el texto de la etiqueta "Correo electrónico" */
+.input-box.correo label {
+  font-weight: normal;
+  /* Opcional: para quitar la negrita del texto */
+}
+
+.input-box input {
+  width: 100%;
+  height: 60%;
+  border-radius: 5px;
+  border: 2px solid #0D6630;
+  outline: none;
+  font-size: 1.3em;
+
+  /*
+  border-right: none;
+  border-top: none;
+  */
+}
+
+
+.input-box label {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0 5px;
+
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input {
+  padding-right: 30px;
+  /* Ajusta el espacio a la derecha para el ícono */
+}
+
+#password {
+  padding-right: 30px;
+  /* Ajusta el espacio a la derecha para el ícono */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  /* Ajusta la posición del ícono a la derecha */
+  top: 80%;
+  /* Ajusta la posición vertical del ícono */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #27894F;
+  /* Cambia el color del ícono si es necesario */
+}
+
+
+
+.btn-g {
+  width: 250px;
+  height: 45px;
+  background: #27894F;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #E7E1E1;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 35%;
+  border-radius: 8;
+
+
+  @media (max-width: 768px) {
+    margin: 40px;
+    width: 60%;
+    margin-left: 45px;
+    margin-right: auto;
+  }
+}

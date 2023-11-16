@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../Index/icc-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,21 +29,23 @@
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
-            <a href="#" class="enlace"><span>Gotas</span>Verdes</a>
+            <a href="../../index.html" class="enlace"><span>Gotas</span>Verdes</a>
             <ul class="XD mostrar">
                 <li><a class="active" href="../../index.html">Inicio</a></li>
-                <li><a href="#">Mapa</a></li>
+                <li><a href="mapaInvitado.html">Mapa</a></li>
                 <li><a href="#">Tienda</a></li>
-                <li><a href="#">Saber más</a></li>
-                <li><a href="">Recolecta</a></li>
+                <li><a href="saberMasInvitado.html">Saber más</a></li>
                 <li>
                     <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            Perfil
+                            Usuario
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Configuración</a></li>
-                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                            <li><a class="dropdown-item" href="../login/login.html">Acceder</a></li>
+                            <li><a class="dropdown-item" href="../usuario/registroUsuario.php">Registrarse como
+                                    usuario</a></li>
+                            <li><a class="dropdown-item" href="../recolector/registroRecolector.php">Registrarse
+                                    como recolector</a></li>
                         </ul>
                     </div>
                 </li>
@@ -56,7 +59,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
+                    </div>
                     <div class="modal-body text-center">
                         <div class="negocio-info--container">
                             <h2 class="negocio-title">*NOMBRE DEL NEGOCIO*</h2>
@@ -90,7 +93,9 @@
                 <h2>¡Únete a nuestro equipo!</h2>
                 <p>Registra tu negocio y empieza a salvar el planeta, al mismo tiempo que ganas puntos canjeables para
                     nuestros productos</p>
-                <button>Registrate ahora </button>
+                <form action="../usuario/registroUsuario.php">
+                    <button>Registrate ahora </button>
+                </form>
             </div>
         </section>
     </main>

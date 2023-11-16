@@ -1,0 +1,31 @@
+.main-section--map {
+    position: relative; /* Asegura que los hijos posicionados se coloquen en relación a este contenedor */
+    width: 100%; /* Ajusta el ancho a tu preferencia */
+    height: 600px; /* Ajusta la altura a tu preferencia */
+  }
+  
+  #mapp {
+    width: 100%; /* Asegura que el mapa ocupe todo el ancho del contenedor */
+    height: 100%; /* Asegura que el mapa ocupe todo el alto del contenedor */
+  }
+
+  .form-regis-neg{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    color: #0D6630;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-regis-neg input{
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-regis-neg button{
+    background-color: #0D6630;
+    margin-bottom: 20px;
+  }
