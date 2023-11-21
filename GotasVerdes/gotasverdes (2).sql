@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2023 a las 00:06:09
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 21-11-2023 a las 15:43:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -91,7 +91,7 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarRecolector` (IN `recolector` VARCHAR(45), IN `con` VARCHAR(45))   BEGIN
     SELECT * FROM recolector 
     WHERE (recolector = correo_recolector OR telefono_recolector = recolector)
-    AND con = contraseña_recolector AND status_recolector=1;
+    AND con = cont_recolector AND status_recolector=1;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarRecolectorPorCorreo` (IN `correoRecolector` VARCHAR(45))   BEGIN
@@ -133,7 +133,7 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarUsuario` (IN `usuario` VARCHAR(45), IN `con` VARCHAR(45))   BEGIN
       SELECT * FROM usuarios 
     WHERE (usuario = correo_usuario OR telefono_usuario=usuario) 
-    AND con = contraseña_usuario;
+    AND con = cont_usuario;
    
 END$$
 
@@ -147,16 +147,16 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarCon` (IN `correo` VARCHAR(45
         SELECT COUNT(*) INTO encontrado_recolector FROM recolector WHERE correo_recolector = correo;
 
         IF encontrado_recolector = 1 THEN
-            UPDATE recolector SET contraseña_recolector = nueva WHERE correo_recolector = correo;
+            UPDATE recolector SET cont_recolector = nueva WHERE correo_recolector = correo;
         END IF;
     ELSE
-        UPDATE usuarios SET contraseña_usuario = nueva WHERE correo_usuario = correo;
+        UPDATE usuarios SET cont_usuario = nueva WHERE correo_usuario = correo;
     END IF;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CambiarContrasenaUsuario` (IN `p_correo_usuario` VARCHAR(45), IN `p_nueva_contrasena` VARCHAR(45))   BEGIN
     UPDATE usuarios 
-    SET contraseña_usuario = p_nueva_contrasena 
+    SET cont_usuario = p_nueva_contrasena 
     WHERE correo_usuario = p_correo_usuario;
 END$$
 
@@ -217,7 +217,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarComentario` (IN `p_comentar
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarRecolector` (IN `p_nombre_recolector` VARCHAR(45), IN `p_edad_recolector` INT, IN `p_licenciaConducir_recolector` VARCHAR(200), IN `p_cedula_recolector` VARCHAR(200), IN `p_correo_recolector` VARCHAR(45), IN `p_telefono_recolector` VARCHAR(45), IN `p_contraseña_recolector` VARCHAR(45), IN `p_status_recolector` INT)   BEGIN
-    INSERT INTO recolector (nombre_recolector, edad_recolector, licenciaConducir_recolector, cedula_recolector, correo_recolector, telefono_recolector, contraseña_recolector, status_recolector)
+    INSERT INTO recolector (nombre_recolector, edad_recolector, licenciaConducir_recolector, cedula_recolector, correo_recolector, telefono_recolector, cont_recolector, status_recolector)
     VALUES (p_nombre_recolector, p_edad_recolector, p_licenciaConducir_recolector, p_cedula_recolector, p_correo_recolector, p_telefono_recolector, p_contraseña_recolector, p_status_recolector);
 END$$
 
@@ -227,7 +227,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarRecuperarContrasena` (IN `p
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarUsuario` (IN `p_nombre_usuario` VARCHAR(45), IN `p_correo_usuario` VARCHAR(45), IN `p_telefono_usuario` VARCHAR(45), IN `p_contraseña_usuario` VARCHAR(45), IN `p_puntos_usuario` INT)   BEGIN
-    INSERT INTO usuarios (nombre_usuario,correo_usuario, telefono_usuario, contraseña_usuario, puntos_usuario)
+    INSERT INTO usuarios (nombre_usuario,correo_usuario, telefono_usuario, cont_usuario, puntos_usuario)
     VALUES (p_nombre_usuario, p_correo_usuario, p_telefono_usuario, p_contraseña_usuario, p_puntos_usuario);
 END$$
 
@@ -239,6 +239,16 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertRecolecta` (IN `nombreUsuario` VARCHAR(45), IN `cantidad` INT, IN `direccion` VARCHAR(45), IN `status` TINYINT, IN `id_usuario` INT)   BEGIN
     INSERT INTO recolecta (nombreUsuario_recolecta, cantidad_recolecta, direccion_recolecta, status_recolecta,id_usuario) 
     VALUES (nombreUsuario, cantidad, direccion, status,id_usuario);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarUsuario` (IN `id_usuario_param` INT, IN `nuevo_nombre_usuario` VARCHAR(45), IN `nuevo_correo_usuario` VARCHAR(45), IN `nuevo_telefono_usuario` VARCHAR(45), IN `nueva_contrasena_usuario` VARCHAR(45))   BEGIN
+    UPDATE usuarios
+    SET
+        nombre_usuario = nuevo_nombre_usuario,
+        correo_usuario = nuevo_correo_usuario,
+        telefono_usuario = nuevo_telefono_usuario,
+        cont_usuario = nueva_contrasena_usuario
+    WHERE id_usuario = id_usuario_param;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_puntos_usuario` (IN `id_usuario_param` INT, IN `nuevos_puntos_param` INT)   BEGIN
@@ -278,6 +288,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerDatosRecolector` (IN `nombre
     SELECT nombre_recolector, correo_recolector, telefono_recolector, status_recolector 
     FROM recolector 
     WHERE nombre_recolector = nombreRecolector;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerDatosUsuario` (IN `p_id_usuario` INT)   BEGIN
+    SELECT nombre_usuario, correo_usuario, telefono_usuario, cont_usuario
+    FROM usuarios 
+    WHERE id_usuario = p_id_usuario;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `obtener_id_usuario` (IN `id_recolecta_param` INT)   BEGIN
@@ -349,7 +365,8 @@ INSERT INTO `administrador` (`id_admin`, `usuario_admin`, `contraseña_admin`) V
 CREATE TABLE `asignacion_recolecta` (
   `id_asignacion` int(11) NOT NULL,
   `id_recolecta` int(11) NOT NULL,
-  `id_recolector` int(11) DEFAULT NULL
+  `id_recolector` int(11) DEFAULT NULL,
+  `id_compra` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -369,6 +386,32 @@ CREATE TABLE `comentarios` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `id_compra` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `fecha_compra` date DEFAULT NULL,
+  `status_compra` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalles_compra`
+--
+
+CREATE TABLE `detalles_compra` (
+  `id_detalle` int(11) NOT NULL,
+  `id_compra` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `negocio`
 --
 
@@ -379,6 +422,28 @@ CREATE TABLE `negocio` (
   `longitud` decimal(10,6) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id_producto` int(11) NOT NULL,
+  `nombre_producto` varchar(255) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio`) VALUES
+(1, 'Playera', 200),
+(2, 'Taza', 300),
+(3, 'Termo', 400),
+(4, 'Mix', 800);
 
 -- --------------------------------------------------------
 
@@ -410,11 +475,10 @@ CREATE TABLE `recolector` (
   `cedula_recolector` varchar(200) NOT NULL,
   `correo_recolector` varchar(45) NOT NULL,
   `telefono_recolector` varchar(45) NOT NULL,
-  `contraseña_recolector` varchar(45) NOT NULL,
+  `cont_recolector` varchar(45) NOT NULL,
   `status_recolector` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
 -- --------------------------------------------------------
 
 --
@@ -440,11 +504,10 @@ CREATE TABLE `usuarios` (
   `nombre_usuario` varchar(45) NOT NULL,
   `correo_usuario` varchar(45) NOT NULL,
   `telefono_usuario` varchar(45) NOT NULL,
-  `contraseña_usuario` varchar(45) NOT NULL,
+  `cont_usuario` varchar(45) NOT NULL,
   `puntos_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
 --
 -- Índices para tablas volcadas
 --
@@ -461,7 +524,8 @@ ALTER TABLE `administrador`
 ALTER TABLE `asignacion_recolecta`
   ADD PRIMARY KEY (`id_asignacion`),
   ADD KEY `fk_asignacion_recolecta_recolecta` (`id_recolecta`),
-  ADD KEY `fk_asignacion_recolecta_recolector` (`id_recolector`);
+  ADD KEY `fk_asignacion_recolecta_recolector` (`id_recolector`),
+  ADD KEY `fk_id_compra` (`id_compra`);
 
 --
 -- Indices de la tabla `comentarios`
@@ -470,11 +534,32 @@ ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id_compra`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `detalles_compra`
+--
+ALTER TABLE `detalles_compra`
+  ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `id_compra` (`id_compra`),
+  ADD KEY `id_producto` (`id_producto`);
+
+--
 -- Indices de la tabla `negocio`
 --
 ALTER TABLE `negocio`
   ADD PRIMARY KEY (`id_negocio`),
   ADD KEY `fk_negocio_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`);
 
 --
 -- Indices de la tabla `recolecta`
@@ -515,7 +600,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `asignacion_recolecta`
 --
 ALTER TABLE `asignacion_recolecta`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -524,22 +609,34 @@ ALTER TABLE `comentarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT de la tabla `detalles_compra`
+--
+ALTER TABLE `detalles_compra`
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
 -- AUTO_INCREMENT de la tabla `negocio`
 --
 ALTER TABLE `negocio`
-  MODIFY `id_negocio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_negocio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `recolecta`
 --
 ALTER TABLE `recolecta`
-  MODIFY `id_recolecta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_recolecta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `recolector`
 --
 ALTER TABLE `recolector`
-  MODIFY `id_recolector` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_recolector` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `recuperarcontraseña`
@@ -551,7 +648,7 @@ ALTER TABLE `recuperarcontraseña`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
@@ -562,7 +659,21 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `asignacion_recolecta`
   ADD CONSTRAINT `fk_asignacion_recolecta_recolecta` FOREIGN KEY (`id_recolecta`) REFERENCES `recolecta` (`id_recolecta`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_asignacion_recolecta_recolector` FOREIGN KEY (`id_recolector`) REFERENCES `recolector` (`id_recolector`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_asignacion_recolecta_recolector` FOREIGN KEY (`id_recolector`) REFERENCES `recolector` (`id_recolector`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_id_compra` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`);
+
+--
+-- Filtros para la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+--
+-- Filtros para la tabla `detalles_compra`
+--
+ALTER TABLE `detalles_compra`
+  ADD CONSTRAINT `detalles_compra_ibfk_1` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`),
+  ADD CONSTRAINT `detalles_compra_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
 
 --
 -- Filtros para la tabla `negocio`

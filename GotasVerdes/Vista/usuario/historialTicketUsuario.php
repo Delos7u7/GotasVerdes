@@ -1,25 +1,43 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+      alert("Debes de iniciar sesión");
+      window.location = "../../index.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+  }
+  $Usuario =$_SESSION['usuario'];
+  include '../../Controlador/ctrlSesionUsuario.php';
+  $id_usuario;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/estiloMapaInvitado.css">
+    <title>Gotas Verdes</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="../Index/icc-removebg-preview.png">
+    <link rel="stylesheet" href="../css/inicioInvitado.css">
+    <link rel="stylesheet" href="../css/estiloTicketTiendaUsuario.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../Index/icc-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500;600&display=swap"
         rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -29,23 +47,22 @@
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
-            <a href="../../index.html" class="enlace"><span>Gotas</span>Verdes</a>
+            <a href="inicioUsuario.php" class="enlace"><span>Gotas</span>Verdes</a>
             <ul class="XD mostrar">
-                <li><a class="active" href="../../index.html">Inicio</a></li>
-                <li><a href="mapaInvitado.html">Mapa</a></li>
-                <li><a href="tiendaInvitado.html">Tienda</a></li>
-                <li><a href="saberMasInvitado.html">Saber más</a></li>
+                <li><a class="active" href="inicioUsuario.php">Inicio</a></li>
+                <li><a href="mapaUsuario.php">Mapa</a></li>
+                <li><a href="tiendaUsuario.php">Tienda</a></li>
+                <li><a href="saberMasUsuario.php">Saber más</a></li>
+                <li><a href="recolecta.php">Recolecta</a></li>
                 <li>
                     <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            Usuario
+                            Perfil
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../login/login.html">Acceder</a></li>
-                            <li><a class="dropdown-item" href="../usuario/registroUsuario.php">Registrarse como
-                                    usuario</a></li>
-                            <li><a class="dropdown-item" href="../recolector/registroRecolector.php">Registrarse
-                                    como recolector</a></li>
+                            <li><a class="dropdown-item" href="configuracionUsuario.php">Configuración</a></li>
+                            <li><a class="dropdown-item" href="../../Controlador/cerrarSession.php">Cerrar sesión</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -54,51 +71,45 @@
     </header>
 
     <main>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="all-ticket--container">
+            <h1 class="succesful">¡Compra realizada exitosamente!</h1>
+            <section class="shop-ticket--container">
+                <div class="title-flex-drop">
+                <h1 class="title-ticket">Gotas<span class="title-green">Verdes</span> te agradece por tu compra</h1>
+                <img class="imagengota" src="../img/indexImg/MascotaGotasVerdesjpg-removebg-preview.png" alt="" srcset="">    
+                </div>
+                <div class="details-ticket">
+                    <div class="details-ticker--flex">
+                    <p class="text-dateid">Fecha:</p>
+                    <p id="dateCompra"></p>
                     </div>
-                    <div class="modal-body text-center">
-                        <div class="negocio-info--container">
-                            <h2 class="negocio-title">*NOMBRE DEL NEGOCIO*</h2>
-                            <h3 class="negocio-subtitle">Dirección</h3>
-                            <p class="negocio-text">*Dirección del negocio*</p>
-                            <h3 class="negocio-subtitle">Télefono</h3>
-                            <p class="negocio-text">*Télefono del negocio*</p>
+                    <div class="details-ticker--flex">
+                    <p class="text-dateid">Folio:</p>
+                    <p id="idCompra"></p>
+                    </div>
+                </div>
+                <div class="ticket--contain">
+                    <div class="ticket-left">
+                        <h3 class="products-left--title">Productos</h3>
+                        <p id="product"></p>
+                    </div>
+
+                    <div class="ticket-right">
+                        <h3 class="amount-right--title">Cantidad</h3>
+                        <p class="cantidad" id="cantidad"></p>
+                        <p>______________</p>
+                        <div class="equal-container">
+                        <p class="totaldropcoin" id="totaldropcoin"></p>
                         </div>
                     </div>
-                    <!-- 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
-                    </div> -->
                 </div>
-            </div>
+                <p class="greenphrase">"Gracias por hacer del mundo un lugar más verde"</p>
+                <div class="seguimiento-pedido">
+                </div>
+            </section>
         </div>
-        <!-- Vertically centered scrollable modal -->
-        <section class="map-section--container">
-            <img id="customIcon"
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='lime' class='bi bi-droplet-fill' viewBox='0 0 16 16'%3E%3Cpath d='M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z' /%3E%3C/svg%3E"
-                style="display: none;">
-            <div id="map"></div>
-            <script src="../js/mapaInvitado.js"></script>
-            <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-        </section>
-        <section class="team-section--container">
-            <div class="team-info">
-                <h1>¿Cómo le hago para aparecer aquí?</h1>
-                <h2>¡Únete a nuestro equipo!</h2>
-                <p>Registra tu negocio y empieza a salvar el planeta, al mismo tiempo que ganas puntos canjeables para
-                    nuestros productos</p>
-                <form action="../usuario/registroUsuario.php">
-                    <button>Registrate ahora </button>
-                </form>
-            </div>
-        </section>
     </main>
+
 
     <footer>
         <div class="footer-section">
@@ -127,12 +138,13 @@
             </div>
 
             <div class="down-footer--container">
-                <a href="TerminosCondicionesInvitado.html">Términos y condiciones</a>
-                <a href="AvisosPrivacidadInvitado.html">Avisos de privacidad</a>
+                <a href="TerminosCondicionesUsuario.html">Términos y condiciones</a>
+                <a href="AvisosPrivacidadUsuario.html">Avisos de privacidad</a>
                 <a class="down-footer--logo" href=""></a>
             </div>
         </div>
     </footer>
+    <script src="../js/historialTicketUsuario.js"></script>
 </body>
 
 </html>

@@ -33,7 +33,7 @@ if(isset($_GET['gmail']) && isset($_GET['token'])){
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i></label>
-            <a href="#" class="enlace"><span>Gotas</span>Verdes</a>
+            <a href="../../index.html" class="enlace"><span>Gotas</span>Verdes</a>
         </nav>
     </header>
     <div class="wrapper">

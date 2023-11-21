@@ -212,3 +212,49 @@ main {
     font-size: 13px;
     color: red;
 }
+
+.boton-historial{
+    margin-left: 40px;
+    background-color: #0ca148;
+    border-style: none;
+    padding: 8px;
+}
+.boton-inside{
+    margin: 0;
+}
+
+.modal-body{
+   
+}
+.modal-body p{
+    margin: 0;
+}
+
+.repeat-modal--body{
+   
+}
+
+.repeat-modal--flex{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.fecha-pedido--modal {
+    
+    font-weight: bold;
+}
+
+.cantidad-pedido--modal {
+    font-weight: bold;
+}
+
+.verde {
+    color: #0D6630
+   
+}
+
+.negro {
+  
+   color: black;
+}

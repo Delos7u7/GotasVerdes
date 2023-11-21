@@ -7,10 +7,8 @@ document.getElementById('carrito-boton').addEventListener('click', function () {
         parseInt(document.getElementById('input-minus-plus-4').value, 10) || 0
     ];
 
-    // Verifica si todos los valores de los inputs son iguales a 0
-    if (inputValues.every(value => value === 0)) {
-        alert('Debes seleccionar al menos un producto antes de redimir puntos.');
-    } else {
+    // Verifica si al menos un valor de los inputs es diferente de 0
+    if (inputValues.some(value => value !== 0)) {
         // Construye el cuerpo de la solicitud POST con los valores de los productos
         var formData = new FormData();
         formData.append('input_minus_plus_1', inputValues[0]);
@@ -31,6 +29,8 @@ document.getElementById('carrito-boton').addEventListener('click', function () {
         .catch(error => {
             console.error('Error al enviar datos al servidor:', error);
         });
+    } else {
+        alert('Debes seleccionar al menos un producto antes de redimir puntos.');
     }
 });
 // Función para obtener y actualizar los puntos de usuario
@@ -82,8 +82,6 @@ document.querySelector('.carrito-compras-boton').addEventListener('click', funct
                     var response = JSON.parse(xhr.responseText);
                     if (response.mensaje) {
                         alert(response.mensaje);
-                        // Recarga la página para reflejar los cambios
-                        location.reload();
                     } else if (response.error) {
                         alert(response.error);
                     }
@@ -256,3 +254,57 @@ function restar4() {
         puntosint = puntosactuales;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para redirigir a historialTicketUsuario.php con el ID de compra
+    function redirigirAHistorial(idCompra) {
+        console.log('Redirigiendo a historialTicketUsuario.php con ID:', idCompra);
+        window.location.href = '../usuario/historialTicketUsuario.php?idCompra=' + idCompra;
+    }
+
+    // Función para llenar el modal con datos de compras obtenidos mediante AJAX
+    function llenarModal() {
+        // Realizar la solicitud AJAX
+        $.ajax({
+            url: '../../Controlador/ctrlTiendaUsuario.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                if (data.compras && Array.isArray(data.compras)) {
+                    var comprasData = data.compras;
+
+                    // Iterar sobre los datos de compras y agregar eventos a los botones
+                    comprasData.forEach(function(compra) {
+                        // Crear elementos HTML para mostrar la información de cada compra
+                        var compraElement = $(
+                            '<div class="repeat-modal--flex">' +
+                            '<p id="fecha-pedido--modal">Fecha Pedido: <span class="verde">' + compra.fecha_compra + '</span></p>' +
+                            '<p id="cantidad-pedido--modal">Cantidad: <span class="verde">' + compra.total + '</span></p>' +
+                            '<button class="boton-inside boton-historial btn btn-primary" data-idcompra="' + compra.id_compra + '">Ver Ticket</button>' +
+                            '</div>'
+                        );
+
+
+                        // Agregar el elemento al 'repeat-modal--body'
+                        $('.repeat-modal--body').append(compraElement);
+
+                        // Asignar un evento al botón para redirigir a historialTicketUsuario.php con el ID de compra
+                        compraElement.find('.boton-inside').click(function() {
+                            var idCompra = $(this).data('idcompra');
+                            redirigirAHistorial(idCompra);
+                        });
+                    });
+                } else {
+                    console.error('La propiedad "compras" no es un array o no está definida en la respuesta del servidor.');
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error en la solicitud AJAX:', textStatus, errorThrown);
+            }
+        });
+    }
+
+    // Llamar a la función para llenar el modal al cargar la página
+    llenarModal();
+});

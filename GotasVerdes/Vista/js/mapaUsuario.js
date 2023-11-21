@@ -64,7 +64,6 @@ function iniciarMap() {
     }
   });
 }
-
 function agregarMarcador(negocio) {
   var marker = new google.maps.Marker({
     position: { lat: parseFloat(negocio.latitud), lng: parseFloat(negocio.longitud) },
@@ -74,9 +73,7 @@ function agregarMarcador(negocio) {
 
   // Abre el modal correspondiente al hacer clic en el marcador
   marker.addListener('click', function () {
-    convertirLatLongADireccion(negocio.latitud, negocio.longitud, function (direccion) {
-      console.log('Latitud:', negocio.latitud);
-      console.log('Longitud:', negocio.longitud);
+    obtenerDireccionPorLatLong(negocio.latitud, negocio.longitud, function (direccion) {
       // Personaliza el contenido del modal con la dirección
       $('.negocio-title').text(negocio.nombre_negocio);
       $('.negocio-subtitle').eq(0).text('Dirección');
@@ -87,20 +84,15 @@ function agregarMarcador(negocio) {
   });
 }
 
-function convertirLatLongADireccion(latitud, longitud, callback) {
-  var apiKey = '088ae2a64717821f7a926d13f4a02e53';
-  var latlng = latitud + ',' + longitud;
-  var url = `http://api.positionstack.com/v1/reverse?access_key=${apiKey}&query=${latlng}`;
-  console.log("latlng "+latlng);
-  console.log("url"+url);
+function obtenerDireccionPorLatLong(latitud, longitud, callback) {
+  var url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud}&lon=${longitud}&zoom=18&addressdetails=1`;
 
   $.ajax({
     url: url,
     dataType: 'json',
     success: function (data) {
-      if (data.data.length > 0) {
-        var location = data.data[0];
-        var direccion = location.label;
+      if (data && data.display_name) {
+        var direccion = data.display_name;
         callback(direccion);
       } else {
         callback('Dirección no encontrada');

@@ -59,3 +59,9 @@ function mostrarProductosYcantidades(detallesCompra) {
 
 // Agrega el evento para obtener puntos al cargar la página
 document.addEventListener('DOMContentLoaded', obtenerPuntosUsuario);
+
+document.getElementById('seguimiento').addEventListener('click', mandarAlaOtra);
+
+function mandarAlaOtra() {
+    window.location.href = '../usuario/seguimientoPedidoUsuario.php'
+}

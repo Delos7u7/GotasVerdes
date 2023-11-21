@@ -21,7 +21,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';      // Servidor SMTP de Gmail
     $mail->SMTPAuth   = true;                  // Habilitar la autenticación SMTP
     $mail->Username   = 'gotasverdesoficial@gmail.com'; // Tu dirección de correo electrónico de Gmail
-    $mail->Password   = 'tbgusetdskoxzjql';    // Tu contraseña de Gmail
+    $mail->Password   = 'fsthgmdpcpvvuuiu';    // Tu contraseña de Gmail
     $mail->SMTPSecure = 'tls';                 // Habilitar cifrado TLS
     $mail->Port       = 587;                   // Puerto TCP para la conexión SMTP (587 para TLS)
 

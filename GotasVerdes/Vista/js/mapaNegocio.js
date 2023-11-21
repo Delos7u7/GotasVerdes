@@ -1,5 +1,5 @@
 // Reemplaza con tu propia clave de API de Google Maps
-const apiKey = 'AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik';
+const apiKey = 'AIzaSyDBFyGZ3Aihm3uJBsX0cbcihwwCdYUkCQk';
 
 var map;
 var markers = []; // Para almacenar los marcadores

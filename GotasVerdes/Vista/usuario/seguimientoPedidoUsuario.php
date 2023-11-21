@@ -1,25 +1,38 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+      alert("Debes de iniciar sesión");
+      window.location = "../../index.html";
+    </script>
+    ';
+    session_destroy();
+    die();
+  }
+  $Usuario =$_SESSION['usuario'];
+  include '../../Controlador/ctrlSesionUsuario.php';
+  $id_usuario;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/estiloMapaInvitado.css">
+    <title>Seguimiento de mi pedido</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="../Index/icc-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500;600&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <link rel="icon" href="../Index/icc-removebg-preview.png">
+    <link rel="stylesheet" href="../css/seguimientoPedidoUsuario.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -29,77 +42,71 @@
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
-            <a href="../../index.html" class="enlace"><span>Gotas</span>Verdes</a>
+            <a href="inicioUsuario.php" class="enlace"><span>Gotas</span>Verdes</a>
             <ul class="XD mostrar">
-                <li><a class="active" href="../../index.html">Inicio</a></li>
-                <li><a href="mapaInvitado.html">Mapa</a></li>
-                <li><a href="tiendaInvitado.html">Tienda</a></li>
-                <li><a href="saberMasInvitado.html">Saber más</a></li>
+                <li><a class="active" href="inicioUsuario.php">Inicio</a></li>
+                <li><a href="mapaUsuario.php">Mapa</a></li>
+                <li><a href="tiendaUsuario.php">Tienda</a></li>
+                <li><a href="saberMasUsuario.php">Saber más</a></li>
+                <li><a href="recolecta.php">Recolecta</a></li>
                 <li>
                     <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            Usuario
+                            Perfil
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../login/login.html">Acceder</a></li>
-                            <li><a class="dropdown-item" href="../usuario/registroUsuario.php">Registrarse como
-                                    usuario</a></li>
-                            <li><a class="dropdown-item" href="../recolector/registroRecolector.php">Registrarse
-                                    como recolector</a></li>
+                            <li><a class="dropdown-item" href="configuracionUsuario.php">Configuración</a></li>
+                            <li><a class="dropdown-item" href="../../Controlador/cerrarSession.php">Cerrar sesión</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <div class="negocio-info--container">
-                            <h2 class="negocio-title">*NOMBRE DEL NEGOCIO*</h2>
-                            <h3 class="negocio-subtitle">Dirección</h3>
-                            <p class="negocio-text">*Dirección del negocio*</p>
-                            <h3 class="negocio-subtitle">Télefono</h3>
-                            <p class="negocio-text">*Télefono del negocio*</p>
-                        </div>
-                    </div>
-                    <!-- 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
-                    </div> -->
+        <div class="envio--container">
+            <div class="detalles-evio--container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                    <path class="colorverde" d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                  </svg>
+                  <div class="idpedido-flex">
+                <h2 class="colorverde idpedido">ID del pedido:</h2>
+                <p id="idpedido"></p>
+                </div>
+                <h2 class="colorverde direccionPedido">Dirección del envío</h2>
+                <p id="direccionPedido"></p>
+                <hr>
+                <h2 class="colorverde detallesPedido">Detalles del pedido</h2>
+                <p id="detallesPedido"></p>
+            </div>
+            <div class="progress-bar-flex">
+                <div class="progress-bar">
+                    <div class="step">1</div>
+                    <div class="line"></div>
+                    <div class="step">2</div>
+                    <div class="line"></div>
+                    <div class="step">3</div>
+                </div>
+                <div class="progress-bar--state">
+                    <p id="preparing">Preparando</p>
+                    <p id="in-coming">En camino</p>
+                    <p id="entregado">Entregado</p>
+                </div>
+                <div class="progress-bar--statee">
+                    <svg id="miSvg1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16" style="display: none;">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    <svg id="miSvg2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16" style="display: none;">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    <svg id="miSvg3" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16" style="display: none;">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
                 </div>
             </div>
         </div>
-        <!-- Vertically centered scrollable modal -->
-        <section class="map-section--container">
-            <img id="customIcon"
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='lime' class='bi bi-droplet-fill' viewBox='0 0 16 16'%3E%3Cpath d='M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z' /%3E%3C/svg%3E"
-                style="display: none;">
-            <div id="map"></div>
-            <script src="../js/mapaInvitado.js"></script>
-            <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-        </section>
-        <section class="team-section--container">
-            <div class="team-info">
-                <h1>¿Cómo le hago para aparecer aquí?</h1>
-                <h2>¡Únete a nuestro equipo!</h2>
-                <p>Registra tu negocio y empieza a salvar el planeta, al mismo tiempo que ganas puntos canjeables para
-                    nuestros productos</p>
-                <form action="../usuario/registroUsuario.php">
-                    <button>Registrate ahora </button>
-                </form>
-            </div>
-        </section>
     </main>
-
     <footer>
         <div class="footer-section">
             <div class="up-footer--container">
@@ -127,12 +134,13 @@
             </div>
 
             <div class="down-footer--container">
-                <a href="TerminosCondicionesInvitado.html">Términos y condiciones</a>
-                <a href="AvisosPrivacidadInvitado.html">Avisos de privacidad</a>
+                <a href="TerminosCondicionesUsuario.html">Términos y condiciones</a>
+                <a href="AvisosPrivacidadUsuario.html">Avisos de privacidad</a>
                 <a class="down-footer--logo" href=""></a>
             </div>
         </div>
     </footer>
+    <script src="../js/seguimientoUsuario.js"></script>
 </body>
 
 </html>
